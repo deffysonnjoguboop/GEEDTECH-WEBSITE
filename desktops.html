@@ -8,7 +8,6 @@
 </head>
 <body>
 
-<!-- ===== HEADER & NAVIGATION ===== -->
 <header>
     <img src="images\GEEDTECH.png" alt="GEEDTECH SOLUTIONS  Logo" class="logo">
     <h1>GEEDTECH SOLUTIONS </h1>
@@ -34,8 +33,6 @@
     <button onclick="searchSite()">Search</button>
 </section>
 
-
-<!-- ===== DESKTOPS SECTION ===== -->
 <section class="products">
     <h2>Our Desktop Collection</h2>
     <p style="text-align:center; max-width:800px; margin:0 auto 30px;">
@@ -61,7 +58,6 @@
             </button>
         </div>
 
-        <!-- DESKTOP 2 -->
         <div class="product-card">
             <img src="images/desktops.jfif" alt="HP ProDesk Desktop">
             <h3>HP ProDesk Mini</h3>
@@ -76,7 +72,6 @@
             </button>
         </div>
 
-        <!-- DESKTOP 3 -->
         <div class="product-card">
             <img src="images/gamingpc.jfif" alt="Gaming Desktop PC">
             <h3>Gaming PC RGB Core i7</h3>
@@ -94,7 +89,6 @@
     </div>
 </section>
 
-<!-- ===== DESKTOP INFORMATION MODAL ===== -->
 <div id="infoBox" style="
     display:none;
     position:fixed;
@@ -117,13 +111,11 @@
     </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
 <footer>
     <p>© 2025 GeedTech | Personalized Technology Information Website</p>
     <p>Email: info@geedtech.com | Phone: +254 710 885 349</p>
 </footer>
 
-<!-- ===== JAVASCRIPT ===== -->
 <script>
 function addToCart(name, price) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -178,5 +170,6 @@ function closeInfo() {
 
 </body>
 </html>
+
 
 
