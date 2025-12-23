@@ -1,0 +1,180 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peripherals | GeedTech</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== HEADER & NAV ===== -->
+<header>
+    <img src="images\GEEDTECH.png" alt="GEEDTECH SOLUTIONS  Logo" class="logo">
+    <h1>GEEDTECH SOLUTIONS </h1>
+    <p>Your Trusted Technology Information & Computer Store</p>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="laptops.html">Laptops</a>
+        <a href="desktops.html">Desktops</a>
+        <a href="printers.html">Printers</a>
+        <a href="peripherals.html">Peripherals</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+</header>
+
+<!-- ===== SEARCH BAR ===== -->
+<section class="search-bar">
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search laptops, desktops, printers, peripherals..."
+    >
+    <button onclick="searchSite()">Search</button>
+</section>
+
+
+<!-- ===== PERIPHERALS SECTION ===== -->
+<section class="products">
+    <h2>Computer Peripherals</h2>
+    <p style="text-align:center; max-width:800px; margin:0 auto 30px;">
+        Computer peripherals enhance usability, comfort, and productivity.
+        At <strong>GeedTech</strong>, we provide quality accessories designed
+        for learning, gaming, and professional use.
+    </p>
+
+    <div class="product-grid">
+
+        <!-- PRODUCT 1 -->
+        <div class="product-card">
+            <img src="images/mouse.jfif" alt="Wireless Mouse">
+            <h3>Wireless Mouse</h3>
+            <p class="price">KES 1,200</p>
+
+            <button onclick="addToCart('Wireless Mouse', 1200)" class="add-cart">
+                Add to Cart
+            </button>
+
+            <button onclick="showDetails('mouse')" class="add-cart">
+                View Quality Info
+            </button>
+        </div>
+
+        <!-- PRODUCT 2 -->
+        <div class="product-card">
+            <img src="images/keyboard.jfif" alt="Mechanical Keyboard">
+            <h3>Mechanical Keyboard (RGB)</h3>
+            <p class="price">KES 4,500</p>
+
+            <button onclick="addToCart('Mechanical Keyboard RGB', 4500)" class="add-cart">
+                Add to Cart
+            </button>
+
+            <button onclick="showDetails('keyboard')" class="add-cart">
+                View Quality Info
+            </button>
+        </div>
+
+        <!-- PRODUCT 3 -->
+        <div class="product-card">
+            <img src="images\gamigheadset.jfif" alt="Gaming Headset">
+            <h3>Gaming Headset</h3>
+            <p class="price">KES 3,200</p>
+
+            <button onclick="addToCart('Gaming Headset', 3200)" class="add-cart">
+                Add to Cart
+            </button>
+
+            <button onclick="showDetails('headset')" class="add-cart">
+                View Quality Info
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== INFORMATION MODAL ===== -->
+<div id="infoBox" style="
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+">
+    <div style="
+        background:white;
+        max-width:500px;
+        margin:100px auto;
+        padding:20px;
+        border-radius:10px;
+    ">
+        <h3 id="infoTitle"></h3>
+        <p id="infoText"></p>
+        <button onclick="closeInfo()" class="add-cart">Close</button>
+    </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>© 2025 GeedTech | Personalized Technology Information Website</p>
+    <p>Email: info@geedtech.com | Phone: +254 710 885 349</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(name + " added to cart!");
+}
+
+function showDetails(type) {
+    let title = "";
+    let text = "";
+
+    if (type === "mouse") {
+        title = "Wireless Mouse – Quality Information";
+        text = "This wireless mouse offers smooth tracking, ergonomic design, and long battery life, making it ideal for daily computer use.";
+    }
+
+    if (type === "keyboard") {
+        title = "Mechanical Keyboard – Quality Information";
+        text = "The mechanical keyboard provides fast response, durability, and RGB lighting. Suitable for gaming, programming, and office tasks.";
+    }
+
+    if (type === "headset") {
+        title = "Gaming Headset – Quality Information";
+        text = "This headset delivers clear audio, noise isolation, and comfort for long usage, ideal for gaming, meetings, and online learning.";
+    }
+
+    document.getElementById("infoTitle").innerText = title;
+    document.getElementById("infoText").innerText = text;
+    document.getElementById("infoBox").style.display = "block";
+}
+
+function closeInfo() {
+    document.getElementById("infoBox").style.display = "none";
+}
+ function searchSite() {
+        let query = document.getElementById("searchInput").value.toLowerCase();
+
+        if (query.includes("laptop")) {
+            window.location.href = "laptops.html";
+        } else if (query.includes("desktop")) {
+            window.location.href = "desktops.html";
+        } else if (query.includes("printer")) {
+            window.location.href = "printers.html";
+        } else if (query.includes("peripheral") || query.includes("mouse") || query.includes("keyboard")) {
+            window.location.href = "peripherals.html";
+        } else {
+            alert("No matching category found. Try: laptops, desktops, printers, peripherals.");
+        }
+    }
+</script>
+
+</body>
+</html>

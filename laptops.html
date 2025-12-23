@@ -1,0 +1,188 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptops | GeedTech</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== HEADER & NAVIGATION ===== -->
+<header>
+    <img src="images\GEEDTECH.png" alt="GEEDTECH SOLUTIONS  Logo" class="logo">
+    <h1>GEEDTECH SOLUTIONS </h1>
+    <p>Your Trusted Technology Information & Computer Store</p>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="laptops.html">Laptops</a>
+        <a href="desktops.html">Desktops</a>
+        <a href="printers.html">Printers</a>
+        <a href="peripherals.html">Peripherals</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+</header>
+
+<!-- ===== SEARCH BAR ===== -->
+<!-- ===== SEARCH BAR ===== -->
+<section class="search-bar">
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search laptops, desktops, printers, peripherals..."
+    >
+    <button onclick="searchSite()">Search</button>
+</section>
+
+
+<!-- ===== LAPTOPS SECTION ===== -->
+<section class="products">
+    <h2>Our Laptop Collection</h2>
+    <p style="text-align:center; max-width:800px; margin:0 auto 30px;">
+        At <strong>GeedTech</strong>, we provide reliable laptops designed for
+        students, professionals, and businesses. Each product includes
+        performance details to help users make informed decisions.
+    </p>
+
+    <div class="product-grid">
+
+        <!-- PRODUCT 1 -->
+        <div class="product-card">
+            <img src="images/laptop1.jpg.jfif" alt="HP ProBook Laptop">
+            <h3>HP ProBook 450 G7</h3>
+            <p>Intel Core i5 • 8GB RAM • 512GB SSD</p>
+            <p class="price">KES 78,000</p>
+
+            <button onclick="addToCart('HP ProBook 450 G7', 78000)" class="add-cart">
+                Add to Cart
+            </button>
+
+            <button onclick="showDetails('hp')" class="add-cart">
+                View Quality Info
+            </button>
+        </div>
+
+        <!-- PRODUCT 2 -->
+        <div class="product-card">
+            <img src="images/dell laptop.jfif" alt="Dell Latitude Laptop">
+            <h3>Dell Latitude 7490</h3>
+            <p>Intel Core i7 • 16GB RAM • 512GB SSD</p>
+            <p class="price">KES 92,000</p>
+
+            <button onclick="addToCart('Dell Latitude 7490', 92000)" class="add-cart">
+                Add to Cart
+            </button>
+
+            <button onclick="showDetails('dell')" class="add-cart">
+                View Quality Info
+            </button>
+        </div>
+
+        <!-- PRODUCT 3 -->
+        <div class="product-card">
+            <img src="images/lenovo.jfif" alt="Lenovo ThinkPad Laptop">
+            <h3>Lenovo ThinkPad X1 Carbon</h3>
+            <p>Intel Core i7 • 16GB RAM • 1TB SSD</p>
+            <p class="price">KES 120,000</p>
+
+            <button onclick="addToCart('Lenovo ThinkPad X1 Carbon', 120000)" class="add-cart">
+                Add to Cart
+            </button>
+
+            <button onclick="showDetails('lenovo')" class="add-cart">
+                View Quality Info
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== PRODUCT INFORMATION MODAL ===== -->
+<div id="infoBox" style="
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+">
+
+    <div style="
+        background:white;
+        max-width:500px;
+        margin:100px auto;
+        padding:20px;
+        border-radius:10px;
+    ">
+        <h3 id="infoTitle"></h3>
+        <p id="infoText"></p>
+        <button onclick="closeInfo()" class="add-cart">Close</button>
+    </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>© 2025 GeedTech | Personalized Technology Information Website</p>
+    <p>Email: info@geedtech.com | Phone: +254 710 885 349</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(name + " added to cart!");
+}
+
+function showDetails(type) {
+    let title = "";
+    let text = "";
+
+    if (type === "hp") {
+        title = "HP ProBook 450 G7 – Quality Information";
+        text = "This laptop offers reliable performance for students and office users. It has a strong build, good battery life, and smooth multitasking for daily tasks such as browsing, assignments, and office work.";
+    }
+
+    if (type === "dell") {
+        title = "Dell Latitude 7490 – Quality Information";
+        text = "Designed for professionals, this laptop delivers high performance, durability, and security features. It is ideal for multitasking, business applications, and long working hours.";
+    }
+
+    if (type === "lenovo") {
+        title = "Lenovo ThinkPad X1 Carbon – Quality Information";
+        text = "A premium laptop with excellent build quality, lightweight design, and powerful performance. Best suited for developers, executives, and advanced users.";
+    }
+
+    document.getElementById("infoTitle").innerText = title;
+    document.getElementById("infoText").innerText = text;
+    document.getElementById("infoBox").style.display = "block";
+}
+
+function closeInfo() {
+    document.getElementById("infoBox").style.display = "none";
+}
+ function searchSite() {
+        let query = document.getElementById("searchInput").value.toLowerCase();
+
+        if (query.includes("laptop")) {
+            window.location.href = "laptops.html";
+        } else if (query.includes("desktop")) {
+            window.location.href = "desktops.html";
+        } else if (query.includes("printer")) {
+            window.location.href = "printers.html";
+        } else if (query.includes("peripheral") || query.includes("mouse") || query.includes("keyboard")) {
+            window.location.href = "peripherals.html";
+        } else {
+            alert("No matching category found. Try: laptops, desktops, printers, peripherals.");
+        }
+    }
+</script>
+
+</body>
+</html>
+
+" class="add-cart">

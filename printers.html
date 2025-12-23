@@ -1,0 +1,181 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printers | GeedTech</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== HEADER & NAVIGATION ===== -->
+<header>
+    <img src="images\GEEDTECH.png" alt="GEEDTECH SOLUTIONS  Logo" class="logo">
+    <h1>GEEDTECH SOLUTIONS </h1>
+    <p>Your Trusted Technology Information & Computer Store</p>
+
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="laptops.html">Laptops</a>
+        <a href="desktops.html">Desktops</a>
+        <a href="printers.html">Printers</a>
+        <a href="peripherals.html">Peripherals</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+</header>
+
+<!-- ===== SEARCH BAR ===== -->
+<section class="search-bar">
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search laptops, desktops, printers, peripherals..."
+    >
+    <button onclick="searchSite()">Search</button>
+</section>
+
+
+<!-- ===== PRINTERS SECTION ===== -->
+<section class="products">
+    <h2>Our Printer Collection</h2>
+    <p style="text-align:center; max-width:800px; margin:0 auto 30px;">
+        At <strong>GeedTech</strong>, we provide reliable printers designed for
+        students, offices, and businesses. Each printer includes clear specifications
+        to help users understand its performance and usage.
+    </p>
+
+    <div class="product-grid">
+
+        <!-- PRINTER 1 -->
+        <div class="product-card">
+            <img src="images/hpdeskjet.jfif" alt="HP DeskJet Printer">
+            <h3>HP DeskJet 2710</h3>
+            <p class="price">KES 8,500</p>
+
+            <button onclick="addToCart('HP DeskJet 2710', 8500)" class="add-cart">
+                Add to Cart
+            </button>
+
+            <button onclick="showDetails('deskjet')" class="add-cart">
+                View Quality Info
+            </button>
+        </div>
+
+        <!-- PRINTER 2 -->
+        <div class="product-card">
+            <img src="images/canonprinter.jfif" alt="Canon Ink Tank Printer">
+            <h3>Canon G3411 Ink Tank</h3>
+            <p class="price">KES 24,000</p>
+
+            <button onclick="addToCart('Canon G3411 Ink Tank', 24000)" class="add-cart">
+                Add to Cart
+            </button>
+
+            <button onclick="showDetails('canon')" class="add-cart">
+                View Quality Info
+            </button>
+        </div>
+
+        <!-- PRINTER 3 -->
+        <div class="product-card">
+            <img src="images/HPLaserJetProM404dn.jfif" alt="HP LaserJet Printer">
+            <h3>HP LaserJet Pro M404dn</h3>
+            <p class="price">KES 32,000</p>
+
+            <button onclick="addToCart('HP LaserJet Pro M404dn', 32000)" class="add-cart">
+                Add to Cart
+            </button>
+
+            <button onclick="showDetails('laserjet')" class="add-cart">
+                View Quality Info
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== PRINTER INFORMATION MODAL ===== -->
+<div id="infoBox" style="
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+">
+    <div style="
+        background:white;
+        max-width:500px;
+        margin:100px auto;
+        padding:20px;
+        border-radius:10px;
+    ">
+        <h3 id="infoTitle"></h3>
+        <p id="infoText"></p>
+        <button onclick="closeInfo()" class="add-cart">Close</button>
+    </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>© 2025 GeedTech | Personalized Technology Information Website</p>
+    <p>Email: info@geedtech.com | Phone: +254 710 885 349</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(name + " added to cart!");
+}
+
+function showDetails(type) {
+    let title = "";
+    let text = "";
+
+    if (type === "deskjet") {
+        title = "HP DeskJet 2710 – Quality Information";
+        text = "This printer supports printing, scanning, and copying. It is compact, affordable, and ideal for home users and students.";
+    }
+
+    if (type === "canon") {
+        title = "Canon G3411 Ink Tank – Quality Information";
+        text = "Designed for high-volume printing with low ink costs. Suitable for offices and small businesses requiring efficiency.";
+    }
+
+    if (type === "laserjet") {
+        title = "HP LaserJet Pro M404dn – Quality Information";
+        text = "A fast and durable monochrome laser printer designed for office environments. Offers network printing and high-speed output.";
+    }
+
+    document.getElementById("infoTitle").innerText = title;
+    document.getElementById("infoText").innerText = text;
+    document.getElementById("infoBox").style.display = "block";
+}
+
+function closeInfo() {
+    document.getElementById("infoBox").style.display = "none";
+}
+ function searchSite() {
+        let query = document.getElementById("searchInput").value.toLowerCase();
+
+        if (query.includes("laptop")) {
+            window.location.href = "laptops.html";
+        } else if (query.includes("desktop")) {
+            window.location.href = "desktops.html";
+        } else if (query.includes("printer")) {
+            window.location.href = "printers.html";
+        } else if (query.includes("peripheral") || query.includes("mouse") || query.includes("keyboard")) {
+            window.location.href = "peripherals.html";
+        } else {
+            alert("No matching category found. Try: laptops, desktops, printers, peripherals.");
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEEDTECH SOLUTIONS | THE HOME OF NEW TECH</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <img src="images\GEEDTECH.png" alt="GEEDTECH SOLUTIONS  Logo" class="logo">
+    <h1>GEEDTECH SOLUTIONS </h1>
+    <p>Your Trusted Technology Information & Computer Store</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="laptops.html">Laptops</a>
+    <a href="desktops.html">Desktops</a>
+    <a href="printers.html">Printers</a>
+    <a href="peripherals.html">Peripherals</a>
+    <a href="cart.html">Cart</a>
+
+</nav>
+<!-- ===== SEARCH BAR ===== -->
+<section class="search-bar">
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search laptops, desktops, printers, peripherals..."
+    >
+    <button onclick="searchSite()">Search</button>
+</section>
+
+
+
+<main>
+
+   
+    <section class="hero">
+        <img src=images\techbanner.jfif alt="Technology Banner">
+        <img src="images\computertech.jfif" alt="Computer Technology">
+        <img src="images\modernoffice.jfif" alt="Modern Office Setup">
+    </section>
+
+    <section class="welcome-section">
+        <h2>Welcome to GEEDTECH SOLUTIONS</h2>
+        <p>
+          GEEDTECH SOLUTIONS  is a technology-focused informational website that provides
+            knowledge and access to quality computers, printers, and electronic gadgets.
+            We help students, businesses, and professionals choose the right technology
+            for education, work, and innovation.
+        </p>
+        <a href="laptops.html" class="btn">Explore Our Products</a>
+    </section>
+
+    <section class="why-section">
+        <h2>Why Choose Our GEEDTECH SOLUTIONS?</h2>
+        <div class="why-features">
+            <div class="feature">
+                <h3>Quality Technology</h3>
+                <p>
+                    We provide genuine laptops, desktops, and accessories from trusted
+                    brands that support learning and productivity.
+                </p>
+            </div>
+            <div class="feature">
+                <h3>Affordable Pricing</h3>
+                <p>
+                    Our products are competitively priced to meet the needs of students,
+                    offices, and home users.
+                </p>
+            </div>
+            <div class="feature">
+                <h3>Technology Guidance</h3>
+                <p>
+                    We educate customers on choosing the right computer devices based on
+                    their personal and professional needs.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories">
+        <h2>Technology Categories</h2>
+        <div class="cat-grid">
+            <a href="laptops.html" class="cat-card">
+                <img src="images/lenovo.jfif" alt="Lenovo ThinkPad Laptop">
+                <h3>Laptops</h3>
+                <p>Portable computers for school, business, and personal use.</p>
+            </a>
+            <a href="desktops.html" class="cat-card">
+                <img src="images/gamingpc.jfif" alt="Gaming Desktop PC">
+                <h3>Desktops</h3>
+                <p>Powerful desktop computers for offices and gaming.</p>
+            </a>
+            <a href="printers.html" class="cat-card">
+                <img src="images/canonprinter.jfif" alt="Canon Ink Tank Printer">
+                <h3>Printers</h3>
+                <p>Reliable printers for home, office, and business use.</p>
+            </a>
+            <a href="peripherals.html" class="cat-card">
+                <img src="images\gamigheadset.jfif" alt="Gaming Headset">
+                <h3>Peripherals</h3>
+                <p>Accessories such as keyboards, mice, and headsets.</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="about">
+        <h2>Importance of Computer Technology</h2>
+        <p>
+            Computer technology plays a vital role in modern society. It supports
+            education through online learning, improves communication, enhances
+            business productivity, and enables innovation in various industries.
+            Our website aims to inform users about technology while providing access
+            to quality computing devices.
+        </p>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial-grid">
+            <div class="test-card">
+                <p>"I learned how to choose the right laptop for my studies. Very helpful!"</p>
+                <h4>- Student User</h4>
+            </div>
+            <div class="test-card">
+                <p>"Great technology information and affordable computers for my office."</p>
+                <h4>- Business Owner</h4>
+            </div>
+            <div class="test-card">
+                <p>"The website is simple, informative, and easy to use."</p>
+                <h4>- Home User</h4>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2025 GeedTech | Personalized Technology Information Website</p>
+    <p>Email: info@geedtech.com | Phone: +254 710 885 349</p>
+</footer>
+<script>
+    /* ===== SLIDESHOW ===== */
+    let slides = document.querySelectorAll('.hero img');
+    let index = 0;
+
+    function changeSlide() {
+        slides[index].classList.remove('active');
+        index = (index + 1) % slides.length;
+        slides[index].classList.add('active');
+    }
+
+    setInterval(changeSlide, 3000);
+
+    /* ===== SEARCH FUNCTION ===== */
+    function searchSite() {
+        let query = document.getElementById("searchInput").value.toLowerCase();
+
+        if (query.includes("laptop")) {
+            window.location.href = "laptops.html";
+        } else if (query.includes("desktop")) {
+            window.location.href = "desktops.html";
+        } else if (query.includes("printer")) {
+            window.location.href = "printers.html";
+        } else if (query.includes("peripheral") || query.includes("mouse") || query.includes("keyboard")) {
+            window.location.href = "peripherals.html";
+        } else {
+            alert("No matching category found. Try: laptops, desktops, printers, peripherals.");
+        }
+    }
+</script>
+
+
+</body>
+</html>
+```

@@ -1,0 +1,182 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desktops | GeedTech</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== HEADER & NAVIGATION ===== -->
+<header>
+    <img src="images\GEEDTECH.png" alt="GEEDTECH SOLUTIONS  Logo" class="logo">
+    <h1>GEEDTECH SOLUTIONS </h1>
+    <p>Your Trusted Technology Information & Computer Store</p>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="laptops.html">Laptops</a>
+        <a href="desktops.html">Desktops</a>
+        <a href="printers.html">Printers</a>
+        <a href="peripherals.html">Peripherals</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+</header>
+
+
+<section class="search-bar">
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search laptops, desktops, printers, peripherals..."
+    >
+    <button onclick="searchSite()">Search</button>
+</section>
+
+
+<!-- ===== DESKTOPS SECTION ===== -->
+<section class="products">
+    <h2>Our Desktop Collection</h2>
+    <p style="text-align:center; max-width:800px; margin:0 auto 30px;">
+        At <strong>GeedTech</strong>, our desktop computers are designed for
+        offices, businesses, learning institutions, and gaming. Each desktop
+        includes clear quality information to help users choose the right system.
+    </p>
+
+    <div class="product-grid">
+
+        <!-- DESKTOP 1 -->
+        <div class="product-card">
+            <img src="images/dellopliflex.jfif" alt="Dell OptiPlex Desktop">
+            <h3>Dell OptiPlex Core i5</h3>
+            <p class="price">KES 38,000</p>
+
+            <button onclick="addToCart('Dell OptiPlex Core i5', 38000)" class="add-cart">
+                Add to Cart
+            </button>
+
+            <button onclick="showDetails('dell')" class="add-cart">
+                View Quality Info
+            </button>
+        </div>
+
+        <!-- DESKTOP 2 -->
+        <div class="product-card">
+            <img src="images/desktops.jfif" alt="HP ProDesk Desktop">
+            <h3>HP ProDesk Mini</h3>
+            <p class="price">KES 42,500</p>
+
+            <button onclick="addToCart('HP ProDesk Mini', 42500)" class="add-cart">
+                Add to Cart
+            </button>
+
+            <button onclick="showDetails('hp')" class="add-cart">
+                View Quality Info
+            </button>
+        </div>
+
+        <!-- DESKTOP 3 -->
+        <div class="product-card">
+            <img src="images/gamingpc.jfif" alt="Gaming Desktop PC">
+            <h3>Gaming PC RGB Core i7</h3>
+            <p class="price">KES 95,000</p>
+
+            <button onclick="addToCart('Gaming PC RGB Core i7', 95000)" class="add-cart">
+                Add to Cart
+            </button>
+
+            <button onclick="showDetails('gaming')" class="add-cart">
+                View Quality Info
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== DESKTOP INFORMATION MODAL ===== -->
+<div id="infoBox" style="
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+">
+    <div style="
+        background:white;
+        max-width:500px;
+        margin:100px auto;
+        padding:20px;
+        border-radius:10px;
+    ">
+        <h3 id="infoTitle"></h3>
+        <p id="infoText"></p>
+        <button onclick="closeInfo()" class="add-cart">Close</button>
+    </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>© 2025 GeedTech | Personalized Technology Information Website</p>
+    <p>Email: info@geedtech.com | Phone: +254 710 885 349</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+function addToCart(name, price) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ name, price });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(name + " added to cart!");
+}
+
+function showDetails(type) {
+    let title = "";
+    let text = "";
+
+    if (type === "dell") {
+        title = "Dell OptiPlex Core i5 – Quality Information";
+        text = "This desktop is reliable and energy-efficient, suitable for office work, learning, and business applications.";
+    }
+
+    if (type === "hp") {
+        title = "HP ProDesk Mini – Quality Information";
+        text = "A compact desktop with strong performance, ideal for offices with limited space and professional environments.";
+    }
+
+    if (type === "gaming") {
+        title = "Gaming PC RGB Core i7 – Quality Information";
+        text = "High-performance desktop designed for gaming and advanced tasks. Features powerful processing, graphics support, and RGB design.";
+    }
+
+    document.getElementById("infoTitle").innerText = title;
+    document.getElementById("infoText").innerText = text;
+    document.getElementById("infoBox").style.display = "block";
+}
+
+function closeInfo() {
+    document.getElementById("infoBox").style.display = "none";
+}
+ function searchSite() {
+        let query = document.getElementById("searchInput").value.toLowerCase();
+
+        if (query.includes("laptop")) {
+            window.location.href = "laptops.html";
+        } else if (query.includes("desktop")) {
+            window.location.href = "desktops.html";
+        } else if (query.includes("printer")) {
+            window.location.href = "printers.html";
+        } else if (query.includes("peripheral") || query.includes("mouse") || query.includes("keyboard")) {
+            window.location.href = "peripherals.html";
+        } else {
+            alert("No matching category found. Try: laptops, desktops, printers, peripherals.");
+        }
+    }
+</script>
+
+</body>
+</html>
+
+
