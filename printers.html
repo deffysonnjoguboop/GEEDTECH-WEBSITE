@@ -8,7 +8,6 @@
 </head>
 <body>
 
-<!-- ===== HEADER & NAVIGATION ===== -->
 <header>
     <img src="images\GEEDTECH.png" alt="GEEDTECH SOLUTIONS  Logo" class="logo">
     <h1>GEEDTECH SOLUTIONS </h1>
@@ -25,7 +24,6 @@
     </nav>
 </header>
 
-<!-- ===== SEARCH BAR ===== -->
 <section class="search-bar">
     <input 
         type="text" 
@@ -35,8 +33,6 @@
     <button onclick="searchSite()">Search</button>
 </section>
 
-
-<!-- ===== PRINTERS SECTION ===== -->
 <section class="products">
     <h2>Our Printer Collection</h2>
     <p style="text-align:center; max-width:800px; margin:0 auto 30px;">
@@ -62,7 +58,6 @@
             </button>
         </div>
 
-        <!-- PRINTER 2 -->
         <div class="product-card">
             <img src="images/canonprinter.jfif" alt="Canon Ink Tank Printer">
             <h3>Canon G3411 Ink Tank</h3>
@@ -77,7 +72,6 @@
             </button>
         </div>
 
-        <!-- PRINTER 3 -->
         <div class="product-card">
             <img src="images/HPLaserJetProM404dn.jfif" alt="HP LaserJet Printer">
             <h3>HP LaserJet Pro M404dn</h3>
@@ -95,7 +89,6 @@
     </div>
 </section>
 
-<!-- ===== PRINTER INFORMATION MODAL ===== -->
 <div id="infoBox" style="
     display:none;
     position:fixed;
@@ -118,13 +111,11 @@
     </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
 <footer>
     <p>© 2025 GeedTech | Personalized Technology Information Website</p>
     <p>Email: info@geedtech.com | Phone: +254 710 885 349</p>
 </footer>
 
-<!-- ===== JAVASCRIPT ===== -->
 <script>
 function addToCart(name, price) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -179,3 +170,4 @@ function closeInfo() {
 
 </body>
 </html>
+
